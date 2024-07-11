@@ -1,11 +1,10 @@
 // ==UserScript==
-// @name         Steam 挂刀行情站（旧版）自动提交
+// @name         Steam 挂刀行情站（旧版）自动提交 6.5
 // @namespace    http://tampermonkey.net/
-// @version      2024-07-09-6.0
+// @version      2024-07-11-6.5
 // @description  自动填写交易筛选的金额和成交量，并自动点击应用规则按钮
 // @author       Yuan
 // @match        *://www.iflow.work/*
-// @match        *://iflow.work/*
 // @grant        none
 // ==/UserScript==
 
@@ -28,20 +27,19 @@
         panel.style.borderWidth = '0.5px';
         panel.style.borderColor= '#696969';
         panel.style.fontFamily = 'Microsoft YaHei UI, sans-serif';
-        panel.style.backdrop = 'saturate(50%) blur(4px)';
+        //panel.style.backdrop = 'saturate(50%) blur(4px)';
 
         panel.innerHTML = `
         <h4 style="margin-top: 0; cursor: default; font-weight: bold; text-align: center;">自动提交设置</h4>
         <div style="display: flex; align-items: center; margin-bottom: 1px;">
-            <label class="input-group-text" for="amountMin" style="flex: 1 35px;">金额≥：</label>
-            <input type="text" class="form-control" id="amountMin" value="1" style="flex: 2; border-radius: 3px;">
+            <label class="input-group-text" for="amountMin" style="flex: 1 35px;">CNY</label>
+            <input type="text" class="form-control" id="amountMin" value="1" style="flex: 3; border-radius: 3px;">
+            <label class="input-group-text" for="amountMax" style="flex: 1 35px;">To</label>
+            <input type="text" class="form-control" id="amountMax" value="5000" style="flex: 3; border-radius: 3px;">
+            <label class="input-group-text" for="amountMax" style="flex: 1 35px;">￥</label>
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 1px;">
-            <label class="input-group-text" for="amountMax" style="flex: 1 35px;">金额≤：</label>
-            <input type="text" class="form-control" id="amountMax" value="5000" style="flex: 2; border-radius: 3px;">
-        </div>
-        <div style="display: flex; align-items: center; margin-bottom: 1px;">
-            <label class="input-group-text" for="volumeMin" style="flex: 1 35px;">成交量≥：</label>
+            <label class="input-group-text" for="volumeMin" style="flex: 1 35px;">成交量 ≥：</label>
             <input type="text" class="form-control" id="volumeMin" value="2" style="flex: 2; border-radius: 3px;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 1px;">
@@ -49,8 +47,8 @@
             <input type="text" class="form-control" id="interval" value="10" style="flex: 2; border-radius: 3px;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 1px;">
-            <label for="sortBy" style="flex: 1;">排序依据：</label>
-            <select id="sortBy" style="flex: 2;">
+            <label for="sortBy" class="input-group-text" style="flex: 1;">排序依据：</label>
+            <select id="sortBy" class="form-control" style="flex: 2;">
                 <option value="buyRadio">最优求购</option>
                 <option value="safebuyRadio">稳定求购</option>
                 <option value="sellRadio">最优寄售</option>
