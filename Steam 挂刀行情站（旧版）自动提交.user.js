@@ -5,6 +5,7 @@
 // @description  自动填写交易筛选的金额和成交量，并自动点击应用规则按钮
 // @author       Yuan
 // @match        *://www.iflow.work/*
+// @match        *://iflow.work/*
 // @grant        none
 // ==/UserScript==
 
