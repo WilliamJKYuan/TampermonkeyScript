@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Steam 挂刀行情站（旧版）自动提交 6.5
+// @name         Steam 挂刀行情站（旧版）自动提交 6.5.1
 // @namespace    http://tampermonkey.net/
-// @version      2024-07-11-6.5
+// @version      6.5.1
 // @description  自动填写交易筛选的金额和成交量，并自动点击应用规则按钮
 // @author       Yuan
 // @match        *://www.iflow.work/*
@@ -18,7 +18,9 @@
         panel.style.top = '10px';
         panel.style.right = '10px';
         panel.style.width = '300px';
-        panel.style.backgroundColor = 'white';
+        panel.style.backgroundColor = 'rgba(204, 204, 240, 0.8)'; // 半透明的高斯模糊背景
+        panel.style.backdropFilter = 'blur(5px)'; // 高斯模糊效果
+        panel.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.5)'; // 添加阴影效果
         panel.style.border = '1px solid black';
         panel.style.padding = '10px';
         panel.style.zIndex = '1000';
@@ -27,7 +29,6 @@
         panel.style.borderWidth = '0.5px';
         panel.style.borderColor= '#696969';
         panel.style.fontFamily = 'Microsoft YaHei UI, sans-serif';
-        //panel.style.backdrop = 'saturate(50%) blur(4px)';
 
         panel.innerHTML = `
         <h4 style="margin-top: 0; cursor: default; font-weight: bold; text-align: center;">自动提交设置</h4>
@@ -60,7 +61,7 @@
            <button id="startAutoClick" class="btn btn-outline-primary" style="flex: 1; margin: auto;">开始自动提交</button>
            <button id="stopAutoClick" class="btn btn-outline-secondary" style="flex: 1; margin: auto;">停止自动提交</button>
         </div>
-    `;
+        `;
 
         document.body.appendChild(panel);
 
