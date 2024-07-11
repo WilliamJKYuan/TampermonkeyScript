@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         自动填写交易筛选并自动点击应用规则
+// @name         Steam 挂刀行情站（旧版）自动提交
 // @namespace    http://tampermonkey.net/
 // @version      2024-07-09-6.0
 // @description  自动填写交易筛选的金额和成交量，并自动点击应用规则按钮
