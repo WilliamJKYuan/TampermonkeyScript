@@ -29,30 +29,6 @@
         panel.style.fontFamily = 'Microsoft YaHei UI, sans-serif';
         panel.style.backdrop = 'saturate(50%) blur(4px)';
 
-/*         panel.innerHTML = `
-            <h4 style="margin-top: 0; cursor: default; font-weight: bold;"">自动交易筛选设置</h4>
-            <div>
-                <label for="amountMin">金额≥：</label>
-                <input type="text" id="amountMin" value="1" style="width: 100%;"><br>
-                <label for="amountMax">金额≤：</label>
-                <input type="text" id="amountMax" value="5000" style="width: 100%;"><br>
-                <label for="volumeMin">成交量≥：</label>
-                <input type="text" id="volumeMin" value="2" style="width: 100%;"><br>
-                <label for="interval">间隔秒数：</label>
-                <input type="text" id="interval" value="10" style="width: 100%;"><br>
-                <label for="sortBy">排序依据：</label>
-                <select id="sortBy" style="width: 100%;">
-                    <option value="buyRadio">最优求购</option>
-                    <option value="safebuyRadio">稳定求购</option>
-                    <option value="sellRadio">最优寄售</option>
-                    <option value="mediansaleRadio">近期成交</option>
-                </select>
-            </div>
-            <div id="countdown" style="text-align: center; font-size: 16px; margin: 10px 0;">倒计时: 0</div>
-            <button id="startAutoClick" style="width: 100%;">开始自动点击</button>
-            <button id="stopAutoClick" style="width: 100%;">停止自动点击</button>
-        `; */
-
         panel.innerHTML = `
         <h4 style="margin-top: 0; cursor: default; font-weight: bold; text-align: center;">自动提交设置</h4>
         <div style="display: flex; align-items: center; margin-bottom: 1px;">
