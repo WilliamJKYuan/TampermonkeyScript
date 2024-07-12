@@ -4,6 +4,7 @@
 // @version      6.5.1
 // @description  自动填写交易筛选的金额和成交量，并自动点击应用规则按钮
 // @author       Yuan
+// @match        *://iflow.work/*
 // @match        *://www.iflow.work/*
 // @grant        none
 // @updateURL         https://raw.githubusercontent.com/WilliamJKYuan/TampermonkeyScript/main/Steam%20%E6%8C%82%E5%88%80%E8%A1%8C%E6%83%85%E7%AB%99%EF%BC%88%E6%97%A7%E7%89%88%EF%BC%89%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4.user.js
