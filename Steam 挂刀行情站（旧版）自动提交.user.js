@@ -121,6 +121,42 @@
         localStorage.setItem('sortBy', sortBy);
     }
 
+    //标记更新时间
+    function updateRowColors() {
+        // 获取所有表格行
+        const rows = document.querySelectorAll('.table-container tbody tr');
+
+        rows.forEach(row => {
+            // 获取时间单元格
+            const timeCell = row.cells[row.cells.length - 1];
+            const timeText = timeCell.textContent.trim();
+
+            let timeInSeconds = 0;
+            // 判断时间文本的格式并转换为秒数
+            if (timeText.includes(' ')) {
+                // 如果是分钟和秒的格式 "mm ss"
+                const [minutes, seconds] = timeText.split(' ');
+                timeInSeconds = parseInt(minutes, 10) * 60 + parseInt(seconds.slice(0, -1), 10);
+            } else {
+                // 如果是秒的格式 "ss"
+                timeInSeconds = parseInt(timeText.slice(0, -1), 10);
+            }
+
+            // 根据时间长短设置单元格样式
+            if (timeInSeconds < 120) {
+                // 小于2分钟，填充为深绿色
+                timeCell.style.backgroundColor = 'darkgreen';
+                timeCell.style.color = 'white';
+            } else {
+                // 大于2分钟，字体颜色改为红色
+                //timeCell.style.color = 'red';
+                // 大于2分钟，填充为深红色
+                timeCell.style.backgroundColor = 'darkred';
+                timeCell.style.color = 'white';
+            }
+        });
+    }
+
     // 自动点击按钮并更新倒计时
     let autoClickInterval;
     let countdownInterval;
@@ -165,6 +201,7 @@
     // 初始化脚本
     function init() {
         createControlPanel();
+        updateRowColors();
 
         // 检查是否有保存的自动点击状态
         if (localStorage.getItem('autoClick') === 'true') {
