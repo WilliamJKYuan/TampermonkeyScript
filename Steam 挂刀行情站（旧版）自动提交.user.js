@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Steam 挂刀行情站（旧版）自动提交 6.5.1
+// @name         Steam 挂刀行情站（旧版）自动提交 6.5.2
 // @namespace    http://tampermonkey.net/
-// @version      6.5.1
+// @version      6.5.2
 // @description  自动填写交易筛选的金额和成交量，并自动点击应用规则按钮
 // @author       Yuan
 // @match        *://iflow.work/*
@@ -64,6 +64,9 @@
            <button id="startAutoClick" class="btn btn-outline-primary" style="flex: 1; margin: auto;">开始自动提交</button>
            <button id="stopAutoClick" class="btn btn-outline-secondary" style="flex: 1; margin: auto;">停止自动提交</button>
         </div>
+        <div style="align-items: center; margin-bottom: auto;">
+           <button id="manualApply" class="btn btn-outline-primary" style="width: 100%; margin:10px 0;">应用规则</button>
+        </div>
         `;
 
         document.body.appendChild(panel);
@@ -91,6 +94,7 @@
 
         document.getElementById('startAutoClick').addEventListener('click', startAutoClick);
         document.getElementById('stopAutoClick').addEventListener('click', stopAutoClick);
+        document.getElementById('manualApply').addEventListener('click', manualApply);
 
         // 恢复保存的设置
         document.getElementById('amountMin').value = localStorage.getItem('amountMin') || '1';
@@ -150,6 +154,12 @@
 
         // 移除自动点击状态
         localStorage.removeItem('autoClick');
+    }
+
+    //手动提交
+    function manualApply() {
+        fillForm();
+        document.getElementById('applySortBtn').click();
     }
 
     // 初始化脚本
