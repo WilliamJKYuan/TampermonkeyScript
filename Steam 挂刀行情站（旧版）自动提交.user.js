@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Steam 挂刀行情站（旧版）自动提交 6.5.2
+// @name         Steam 挂刀行情站（旧版）自动提交 6.5.3
 // @namespace    http://tampermonkey.net/
-// @version      6.5.2
+// @version      6.5.3
 // @description  自动填写交易筛选的金额和成交量，并自动点击应用规则按钮
 // @author       Yuan
 // @match        *://iflow.work/*
