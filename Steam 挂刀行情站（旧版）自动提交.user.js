@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Steam 挂刀行情站（旧版）自动提交 6.5.3
+// @name         Steam 挂刀行情站（旧版）自动提交 6.5.4
 // @namespace    http://tampermonkey.net/
-// @version      6.5.3
+// @version      6.5.4
 // @description  自动填写交易筛选的金额和成交量，并自动点击应用规则按钮
 // @author       Yuan
 // @match        *://iflow.work/*
@@ -59,7 +59,7 @@
                 <option value="mediansaleRadio">近期成交</option>
             </select>
         </div>
-        <div id="countdown" style="text-align: center; font-size: 16px; margin: 10px 0;">提交倒计时: 0</div>
+        <div id="countdown" style="text-align: center; font-size: 16px; font-weight: bold; margin: 10px 0;">提交倒计时</div>
         <div style="display: flex; align-items: center; margin-bottom: auto;">
            <button id="startAutoClick" class="btn btn-outline-primary" style="flex: 1; margin: auto;">开始自动提交</button>
            <button id="stopAutoClick" class="btn btn-outline-secondary" style="flex: 1; margin: auto;">停止自动提交</button>
@@ -171,13 +171,24 @@
             countdown = interval / 1000; // 重置倒计时
         }, interval);
 
+        /**
+        //秒计倒计时
         countdownInterval = setInterval(() => {
             countdown--;
-            document.getElementById('countdown').innerText = `倒计时: ${countdown}`;
+            document.getElementById('countdown').innerText = `提交倒计时: ${countdown}秒`;
             if (countdown <= 0) {
                 countdown = interval / 1000;
             }
         }, 1000);
+        **/
+        //毫秒计倒计时
+        countdownInterval = setInterval(() => {
+            countdown -= 0.1;
+            document.getElementById('countdown').innerText = `${countdown.toFixed(1)}秒后提交`;
+            if (countdown <= 0) {
+                countdown = interval / 1000;
+            }
+        }, 100);
 
         // 保存自动点击状态
         localStorage.setItem('autoClick', 'true');
@@ -186,7 +197,7 @@
     function stopAutoClick() {
         clearInterval(autoClickInterval);
         clearInterval(countdownInterval);
-        document.getElementById('countdown').innerText = '倒计时: 0';
+        document.getElementById('countdown').innerText = '0秒后提交';
 
         // 移除自动点击状态
         localStorage.removeItem('autoClick');
